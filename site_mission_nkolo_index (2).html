@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mission Catholique de N’kolo – ASBL</title>
+  <meta name="description" content="Mission Catholique de N’kolo – Foi, éducation et santé au Kongo Central (RDC). Découvrez nos actions, nos écoles avec internats et notre centre médical. Devenez partenaire." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;           /* bleu nuit */
+      --bg-2:#0b1227;
+      --brand:#0b3b6f;        /* bleu profond */
+      --brand-2:#0a5;         /* accent vert émeraude léger */
+      --accent:#d4a017;       /* or */
+      --muted:#64748b;        /* gris bleuté */
+      --paper:#ffffff;
+      --paper-2:#f7f8fb;
+      --ink:#0f172a;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(2,6,23,.15);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;color:var(--ink);background:var(--paper-2)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(160%) blur(8px);box-shadow:0 1px 0 rgba(2,6,23,.06)}
+    .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(145deg,var(--brand),#12234a);display:grid;place-items:center;color:#fff;box-shadow:var(--shadow);font-weight:900}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;color:#0b132a;opacity:.85}
+    nav a:hover{opacity:1}
+    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#1a1306;padding:10px 16px;border-radius:999px;font-weight:700;box-shadow:var(--shadow)}
+    .cta:hover{filter:brightness(1.05)}
+
+    /* HERO */
+    .hero{position:relative;isolation:isolate}
+    .hero .bg{position:absolute;inset:0;background:linear-gradient(120deg, rgba(15,23,42,0.88), rgba(15,23,42,0.35)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;z-index:-1}
+    .hero .wrap{padding:96px 0 72px 0;color:#fff}
+    .hero h1{font-size: clamp(32px, 6vw, 56px);line-height:1.05;margin:0 0 10px}
+    .hero p{max-width:720px;font-size:clamp(16px, 2.2vw, 20px);opacity:.95;margin:0 0 22px}
+    .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:12px 16px;font-weight:700}
+    .btn.primary{background:var(--brand);color:#fff}
+    .btn.secondary{background:#fff;color:#0b132a}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+    .pill{background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 12px;text-align:center}
+
+    /* SECTIONS */
+    section{padding:70px 0}
+    .grid-2{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+    .card{background:var(--paper);border:1px solid #e8ecf5;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card.pad{padding:22px}
+    h2{font-size:clamp(28px,4.5vw,36px);margin:0 0 14px}
+    .muted{color:var(--muted)}
+
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .pillar{padding:18px;border-radius:var(--radius);border:1px solid #e8ecf5;background:#fff}
+    .pillar h3{margin:0 0 6px}
+
+    .schools{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .school{overflow:hidden}
+    .school img{width:100%;height:160px;object-fit:cover;display:block}
+    .school .info{padding:12px 14px}
+
+    .cta-band{background:linear-gradient(135deg,var(--brand),#1c355f);color:#fff;border-radius:var(--radius);padding:28px;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:20px}
+    .cta-band ul{margin:.4rem 0 0 1rem}
+
+    .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:160px;gap:12px}
+    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+    /* CONTACT */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    form{display:grid;gap:12px}
+    input, textarea{width:100%;padding:12px 14px;border:1px solid #e3e8f3;border-radius:12px;font:inherit;background:#fff}
+    textarea{min-height:120px;resize:vertical}
+    .submit{background:var(--accent);border:none;color:#1a1306;padding:12px 16px;border-radius:999px;font-weight:800;cursor:pointer}
+
+    footer{margin-top:50px;background:#0b132a;color:#cdd5e1}
+    footer .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:22px;padding:32px 0}
+    footer a{color:#e2e8f0}
+
+    /* EXTRA SECTIONS */
+    .section-subtitle{margin:-6px 0 18px;color:var(--muted)}
+    .badges{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{background:#fff;border:1px solid #e8ecf5;border-radius:999px;padding:6px 12px;font-weight:600}
+
+    /* Santé */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{background:#fff;border:1px solid #e8ecf5;border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+
+    /* Timeline */
+    .timeline{border-left:3px solid var(--brand);padding-left:18px;display:grid;gap:14px}
+    .timeline .item{position:relative}
+    .timeline .item:before{content:"";position:absolute;left:-25px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--brand)}
+
+    /* Sous-paroisses */
+    .parishes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .parish{background:#fff;border:1px solid #e8ecf5;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+    .parish .info{padding:12px 14px}
+
+    /* Testimonials */
+    .testis{display:flex;gap:16px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+    .testi{flex:0 0 320px;background:#fff;border:1px solid #e8ecf5;border-radius:14px;padding:18px;scroll-snap-align:start;box-shadow:var(--shadow)}
+
+    /* Map */
+    .map{border:0;width:100%;height:340px;border-radius:14px;box-shadow:var(--shadow)}
+
+    /* FAQ */
+    details{background:#fff;border:1px solid #e8ecf5;border-radius:12px;padding:12px 16px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:700}
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .grid-2{grid-template-columns:1fr}
+      .pillars{grid-template-columns:1fr}
+      .schools{grid-template-columns:repeat(2,1fr)}
+      .cta-band{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+      .services{grid-template-columns:1fr}
+      .parishes{grid-template-columns:1fr}
+    }
+      .pillars{grid-template-columns:1fr}
+      .schools{grid-template-columns:repeat(2,1fr)}
+      .cta-band{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container bar" role="navigation" aria-label="Navigation principale">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">✚</div>
+        <a href="#accueil" aria-label="Aller à l’accueil">Mission Catholique de N’kolo – ASBL</a>
+      </div>
+      <nav aria-label="Liens du site">
+        <ul>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#actions">Nos actions</a></li>
+          <li><a href="#sante">Santé</a></li>
+          <li><a href="#ecoles">Écoles</a></li>
+          <li><a href="#histoire">Histoire</a></li>
+          <li><a href="#localisation">Localisation</a></li>
+          <li><a href="#partenaires">Partenaires</a></li>
+          <li><a href="#don">Don</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact" class="cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="accueil" class="hero" aria-label="Haut de page">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="container wrap">
+      <h1>Servir N’kolo depuis 1927</h1>
+      <p>Au cœur du Kongo Central (RDC), la Mission Catholique de N’kolo annonce l’Évangile et agit pour la <strong>foi</strong>, l’<strong>éducation</strong> et la <strong>santé</strong> de toute la communauté.</p>
+      <div class="actions">
+        <a class="btn primary" href="#actions">Découvrir nos actions</a>
+        <a class="btn secondary" href="#partenaires">Devenir partenaire</a>
+      </div>
+      <div class="stats" role="list" aria-label="Chiffres clés">
+        <div class="pill" role="listitem">4 écoles</div>
+        <div class="pill" role="listitem">1 centre médical</div>
+        <div class="pill" role="listitem">Internats</div>
+        <div class="pill" role="listitem">Sous-paroisses</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- À PROPOS / MISSION -->
+  <section id="apropos">
+    <div class="container grid-2">
+      <div>
+        <h2>Notre mission</h2>
+        <p class="muted">Appartenant à la congrégation des <strong>Pères Rédemptoristes</strong> au <strong>Diocèse de Matadi</strong>, nous sommes implantés dans le <strong>groupement de N’kolo</strong>, secteur de <strong>Boko</strong>, territoire de <strong>Mbanza-Ngungu</strong>. Nous servons par la foi, l’éducation et la santé avec une attention particulière aux plus vulnérables.</p>
+      </div>
+      <div class="card pad" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1545930781-9a382df9b1f9?q=80&w=1200&auto=format&fit=crop" alt="Communauté rassemblée" style="width:100%;height:320px;object-fit:cover;border-radius:12px" />
+      </div>
+    </div>
+    <div class="container pillars">
+      <div class="pillar">
+        <h3>Foi</h3>
+        <p class="muted">Messes, catéchèse et accompagnement spirituel à la paroisse <strong>Sacré-Cœur</strong> et dans les sous-paroisses (dont <strong>Sainte Marguerite</strong> à 7 km).</p>
+      </div>
+      <div class="pillar">
+        <h3>Éducation</h3>
+        <p class="muted">Quatre écoles conventionnées catholiques – EP Matoko, EP Lusansu, Lycée Luzolo, Institut Luzingu Lwa Mpa – avec <strong>internats</strong> pour accueillir les élèves venant de loin.</p>
+      </div>
+      <div class="pillar">
+        <h3>Santé</h3>
+        <p class="muted">Un <strong>centre médical</strong> qui offre des soins de qualité à toute la communauté et aux villages environnants.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIONS -->
+  <section id="actions" style="background:var(--paper)">
+    <div class="container">
+      <h2>Nos actions</h2>
+      <p class="muted">Spirituel, social et éducatif : des projets concrets qui améliorent la vie quotidienne.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Vie pastorale</h3>
+          <p class="muted">Célébrations, retraites, visite des malades, actions de charité.</p>
+        </div>
+        <div class="pillar">
+          <h3>Jeunesse & écoles</h3>
+          <p class="muted">Soutien scolaire, activités culturelles et sportives, bourses.</p>
+        </div>
+        <div class="pillar">
+          <h3>Solidarité</h3>
+          <p class="muted">Aide aux familles, accès aux soins, sensibilisation santé publique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SANTÉ & COMMUNAUTÉ (nouveau) -->
+  <section id="sante">
+    <div class="container">
+      <h2>Centre médical & communauté</h2>
+      <p class="section-subtitle">Des soins accessibles à tous, y compris les villages éloignés.</p>
+      <div class="services">
+        <div class="service">
+          <h3>Consultations</h3>
+          <p class="muted">Médecine générale, pédiatrie, suivi prénatal.</p>
+        </div>
+        <div class="service">
+          <h3>Soins infirmiers</h3>
+          <p class="muted">Vaccinations, pansements, dépistages et sensibilisation.</p>
+        </div>
+        <div class="service">
+          <h3>Pharmacie</h3>
+          <p class="muted">Médicaments essentiels à coût social.</p>
+        </div>
+      </div>
+      <div class="badges" style="margin-top:14px">
+        <span class="badge">Ouvert Lun–Sam</span>
+        <span class="badge">Tarifs solidaires</span>
+        <span class="badge">Évacuation d’urgence</span>
+      </div>
+      <div class="card" style="margin-top:18px;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1400&auto=format&fit=crop" alt="Soins de santé communautaires" style="width:100%;height:260px;object-fit:cover"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉCOLES -->
+  <section id="ecoles">
+    <div class="container">
+      <h2>Écoles</h2>
+      <p class="muted">Un réseau éducatif pour former et protéger l’avenir des enfants.</p>
+      <div class="schools">
+        <article class="card school" aria-label="EP Matoko">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop" alt="EP Matoko">
+          <div class="info">
+            <strong>EP Matoko</strong>
+            <p class="muted">Internat disponible</p>
+          </div>
+        </article>
+        <article class="card school" aria-label="EP Lusansu">
+          <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop" alt="EP Lusansu">
+          <div class="info">
+            <strong>EP Lusansu</strong>
+            <p class="muted">Internat disponible</p>
+          </div>
+        </article>
+        <article class="card school" aria-label="Lycée Luzolo">
+          <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?q=80&w=1200&auto=format&fit=crop" alt="Lycée Luzolo">
+          <div class="info">
+            <strong>Lycée Luzolo</strong>
+            <p class="muted">Internat disponible</p>
+          </div>
+        </article>
+        <article class="card school" aria-label="Institut Luzingu Lwa Mpa">
+          <img src="https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?q=80&w=1200&auto=format&fit=crop" alt="Institut Luzingu Lwa Mpa">
+          <div class="info">
+            <strong>Institut Luzingu Lwa Mpa</strong>
+            <p class="muted">Internat disponible</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTOIRE (nouveau) -->
+  <section id="histoire">
+    <div class="container grid-2">
+      <div>
+        <h2>Depuis 1927</h2>
+        <p class="muted">Créée par les missionnaires blancs, la Mission Catholique de N’kolo appartient à la congrégation des Pères Rédemptoristes, dans le Diocèse de Matadi.</p>
+        <div class="timeline">
+          <div class="item"><strong>1927</strong> — Fondation de la Mission à N’kolo.</div>
+          <div class="item"><strong>Années 1950–70</strong> — Développement des écoles et de la vie paroissiale.</div>
+          <div class="item"><strong>2000+</strong> — Internats renforcés pour accueillir les élèves venant de loin.</div>
+          <div class="item"><strong>Aujourd’hui</strong> — Paroisse Sacré-Cœur, sous-paroisses (dont Sainte Marguerite), centre médical et actions sociales.</div>
+        </div>
+      </div>
+      <div class="card pad" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1547483238-2cbfdbfd3bd3?q=80&w=1200&auto=format&fit=crop" alt="Histoire de la mission" style="width:100%;height:320px;object-fit:cover;border-radius:12px" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SOUS-PAROISSES (nouveau) -->
+  <section id="paroisses">
+    <div class="container">
+      <h2>Sous-paroisses</h2>
+      <p class="section-subtitle">Autour de la paroisse Sacré-Cœur.</p>
+      <div class="parishes">
+        <article class="parish">
+          <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1400&auto=format&fit=crop" alt="Sous-paroisse Sainte Marguerite"/>
+          <div class="info"><strong>Sainte Marguerite</strong><div class="muted">À 7 km de la paroisse mère</div></div>
+        </article>
+        <article class="parish">
+          <img src="https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?q=80&w=1400&auto=format&fit=crop" alt="Sous-paroisse locale"/>
+          <div class="info"><strong>Communautés rurales</strong><div class="muted">Catéchèse & fraternité</div></div>
+        </article>
+        <article class="parish">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1400&auto=format&fit=crop" alt="Vie paroissiale"/>
+          <div class="info"><strong>Pastorale</strong><div class="muted">Visite des malades & actions caritatives</div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALISATION (nouveau) -->
+  <section id="localisation">
+    <div class="container">
+      <h2>Localisation</h2>
+      <p class="section-subtitle">Groupement de N’kolo, secteur de Boko, territoire de Mbanza‑Ngungu, Kongo Central, RDC.</p>
+      <iframe class="map" src="https://www.google.com/maps?q=Kongo+Central+RDC&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte de la mission"></iframe>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES (nouveau) -->
+  <section id="temoignages">
+    <div class="container">
+      <h2>Témoignages</h2>
+      <div class="testis">
+        <div class="testi"><strong>Parent d’élève</strong><br><span class="muted">« Grâce à l’internat, notre fille peut étudier sereinement. »</span></div>
+        <div class="testi"><strong>Agent de santé</strong><br><span class="muted">« Le centre médical soulage toute la région. »</span></div>
+        <div class="testi"><strong>Catéchiste</strong><br><span class="muted">« La mission accompagne les familles dans la foi et l’espérance. »</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTENAIRES / CTA -->
+  <section id="partenaires">
+    <div class="container">
+      <div class="cta-band card" role="region" aria-label="Devenir partenaire">
+        <div>
+          <h2 style="margin:0 0 8px">Devenez partenaire</h2>
+          <p style="margin:0">Soutenez la Mission par un appui <strong>financier</strong>, <strong>matériel</strong> ou tout <strong>accompagnement</strong>. Nous partageons des mises à jour et des rapports d'impact.</p>
+          <ul>
+            <li>Financier – dons, mécénat, parrainage</li>
+            <li>Matériel – fournitures scolaires, matériel médical</li>
+            <li>Accompagnement – bénévolat, expertise</li>
+          </ul>
+        </div>
+        <div style="text-align:right">
+          <a class="btn secondary" href="#partenaire-form" aria-label="Aller au formulaire partenaire">Proposer un partenariat</a>
+        </div>
+      </div>
+
+      <!-- FORMULAIRE PARTENAIRE (nouveau) -->
+      <div id="partenaire-form" class="grid-2" style="margin-top:22px">
+        <form action="https://formspree.io/f/XXXXYOURID" method="POST" class="card pad" aria-label="Formulaire Partenaires" onsubmit="if(this.action.includes('XXXXYOURID')){alert('Astuce: remplacez l\'URL Formspree par votre identifiant pour recevoir les messages.');} ">
+          <h3 style="margin-top:0">Proposer un partenariat</h3>
+          <input type="hidden" name="_subject" value="Nouveau partenariat via site Mission N'kolo">
+          <label>
+            <span>Nom et prénom</span>
+            <input type="text" name="nom" placeholder="Votre nom" required>
+          </label>
+          <label>
+            <span>Organisation (optionnel)</span>
+            <input type="text" name="organisation" placeholder="Nom de l'organisation">
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="vous@exemple.com" required>
+          </label>
+          <label>
+            <span>Type de soutien</span>
+            <select name="type" required style="width:100%;padding:12px 14px;border:1px solid #e3e8f3;border-radius:12px;background:#fff">
+              <option value="Financier">Financier</option>
+              <option value="Matériel">Matériel</option>
+              <option value="Accompagnement">Accompagnement</option>
+            </select>
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" placeholder="Décrivez votre proposition"></textarea>
+          </label>
+          <label style="display:flex;align-items:center;gap:8px">
+            <input type="checkbox" required> <span class="muted">J’accepte d’être contacté par la Mission</span>
+          </label>
+          <button class="submit" type="submit">Envoyer la proposition</button>
+          <p class="muted" style="font-size:12px;margin:8px 0 0">Astuce : pour Netlify Forms, remplacez <code>action</code> par <code>data-netlify="true" name="partenaires"</code> et supprimez <code>action</code>.</p>
+        </form>
+        <div class="card pad">
+          <h3 style="margin-top:0">Pourquoi devenir partenaire ?</h3>
+          <ul>
+            <li>Impact direct sur l’éducation (4 écoles, internats)</li>
+            <li>Accès aux soins pour la communauté et villages éloignés</li>
+            <li>Transparence : rapports & photos des réalisations</li>
+          </ul>
+          <div class="badges" style="margin:6px 0 12px">
+            <span class="badge">Kongo Central</span>
+            <span class="badge">Diocèse de Matadi</span>
+            <span class="badge">Depuis 1927</span>
+          </div>
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop" alt="Bénévoles en action" style="width:100%;height:220px;object-fit:cover;border-radius:12px">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (nouveau) -->
+  <section id="faq">
+    <div class="container">
+      <h2>Questions fréquentes</h2>
+      <details>
+        <summary>Comment devenir partenaire ?</summary>
+        <p class="muted">Remplissez le formulaire de contact avec l’objet « Partenariat ». Nous vous recontactons sous peu.</p>
+      </details>
+      <details>
+        <summary>Les internats sont-ils ouverts toute l’année ?</summary>
+        <p class="muted">Oui, avec des périodes de congé alignées sur le calendrier scolaire.</p>
+      </details>
+      <details>
+        <summary>À qui s’adresse le centre médical ?</summary>
+        <p class="muted">À toute la communauté, y compris les habitants des villages éloignés.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="don">
+    <div class="container">
+      <h2>Faire un don</h2>
+      <p class="section-subtitle">Votre générosité soutient l’éducation, la santé et la pastorale à N’kolo.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Par carte bancaire</h3>
+          <p class="muted">Paiement en ligne sécurisé (ex. Stripe/PayPal). Lien à connecter.</p>
+          <a class="btn primary" href="https://exemple-paiement.org/mission-nkolo" target="_blank" rel="noopener">Donner maintenant</a>
+        </div>
+        <div class="pillar">
+          <h3>Virement bancaire</h3>
+          <p class="muted">Nom du bénéficiaire : Mission Catholique de N’kolo – ASBL<br>IBAN/Compte : <em>à compléter</em><br>Référence : Don – [Nom]</p>
+        </div>
+        <div class="pillar">
+          <h3>Dons matériels</h3>
+          <p class="muted">Fournitures scolaires, matériel médical, équipements. Contactez-nous pour la logistique.</p>
+          <a class="btn secondary" href="#contact">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="actus" style="padding-top:40px">
+    <div class="container">
+      <h2>Galerie & actualités</h2>
+      <p class="muted">Quelques images de nos activités et événements.</p>
+      <div class="gallery" role="list">
+        <img role="listitem" src="https://images.unsplash.com/photo-1534361960057-19889db9621e?q=80&w=1200&auto=format&fit=crop" alt="Célébration communautaire" />
+        <img role="listitem" src="https://images.unsplash.com/photo-1576765608648-c05b3e04f5aa?q=80&w=1200&auto=format&fit=crop" alt="Soins au centre médical" />
+        <img role="listitem" src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1200&auto=format&fit=crop" alt="Atelier scolaire" />
+        <img role="listitem" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop" alt="Vie paroissiale" />
+        <img role="listitem" src="https://images.unsplash.com/photo-1526081347589-6ecf838bb2ab?q=80&w=1200&auto=format&fit=crop" alt="Activité jeunesse" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--paper);">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact">
+        <form aria-label="Formulaire de contact" onsubmit="event.preventDefault(); alert('Merci ! Votre message a été soumis.');">
+          <label>
+            <span>Nom</span>
+            <input type="text" name="name" placeholder="Votre nom" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="vous@exemple.com" required />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" placeholder="Votre message"></textarea>
+          </label>
+          <button class="submit" type="submit">Envoyer</button>
+        </form>
+        <div class="card pad">
+          <h3 style="margin-top:0">Coordonnées</h3>
+          <p class="muted">Mission Catholique de N’kolo – ASBL<br>Groupement de N’kolo, Secteur de Boko, Territoire de Mbanza‑Ngungu, Kongo Central, RDC</p>
+          <p><strong>Email :</strong> contact@missionnkolo.org<br><strong>Téléphone :</strong> +243 (0) 000 000 000</p>
+          <p class="muted">Horaires : Lun–Sam, 8h–17h</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>
+        <strong>Mission Catholique de N’kolo – ASBL</strong>
+        <p style="margin:.5rem 0 0" class="muted">Foi, éducation et santé au service de la communauté depuis 1927.</p>
+      </div>
+      <div>
+        <strong>Liens</strong>
+        <p><a href="#apropos">À propos</a> · <a href="#actions">Actions</a> · <a href="#ecoles">Écoles</a> · <a href="#partenaires">Partenaires</a> · <a href="#contact">Contact</a></p>
+      </div>
+      <div>
+        <strong>Adresse</strong>
+        <p class="muted">Groupement de N’kolo, Secteur de Boko,<br>Territoire de Mbanza‑Ngungu, Kongo Central, RDC</p>
+      </div>
+    </div>
+    <div style="text-align:center;padding:14px;border-top:1px solid rgba(226,232,240,.12);">© <span id="y"></span> Mission Catholique de N’kolo – ASBL</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
